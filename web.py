@@ -16,7 +16,7 @@ def add_todo():
 st.title("My Todo App") 
 st.subheader("This is my todo app.")
 for index, item in enumerate(todo_list):
-    check = st.checkbox(item, key=f"{item}-{index}")
+    check = st.checkbox(item, key=f"{item}{index}")
     if check:
         todo_list.pop(index)
         with open('Todo.txt','w') as f:
