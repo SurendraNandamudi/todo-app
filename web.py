@@ -19,9 +19,9 @@ for index, item in enumerate(todo_list):
     check = st.checkbox(item, key=f"{item}{index}")
     if check:
         todo_list.pop(index)
-        with open('Todo.txt','w') as f:
+        with open('todo.txt','w') as f:
             f.writelines(todo_list)
-        del st.session_state[f"{item}{index}"]
+        st.session_state.pop(f"{item}{index}", None)
         st.rerun()
 
 st.text_input(label="", placeholder="Add new todo...", key="new_task",on_change=add_todo)
